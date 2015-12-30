@@ -1,6 +1,6 @@
 - service: app
   command: bundle exec ruby scripts/check.rb
-    
+
 #- name: ci
   #type: parallel
   #steps:
