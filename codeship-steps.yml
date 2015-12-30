@@ -1,0 +1,18 @@
+- service: app
+  command: bundle exec ruby scripts/check.rb
+    
+#- name: ci
+  #type: parallel
+  #steps:
+  #- name: features
+    #service: project_name
+    #command: script/ci features
+  #- name: specs
+    #service: project_name
+    #command: script/ci specs
+  #- name: brakeman
+    #service: project_name
+    #command: script/ci brakeman
+  #- name: seeds
+    #service: project_name
+    #command: script/ci seed
