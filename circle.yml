@@ -19,11 +19,11 @@ test:
     - sudo bash -c "echo \"host all all 0.0.0.0/0 trust\" >>
       /etc/postgresql/9.4/main/pg_hba.conf"
     - sudo /etc/init.d/postgresql restart
-    - docker run osahyoun/rails-demo RAILS_ENV=test bundle exec rails db:create
-    - docker run osahyoun/rails-demo RAILS_ENV=test bundle exec rails db:migrate
+    - docker run --net="host" osahyoun/rails-demo bundle exec rails db:create
+    - docker run --net="host" osahyoun/rails-demo bundle exec rails db:migrate
 
   override:
     #- docker run -d -p 3000:3000 osahyoun/rails-demo; sleep 10
-    - docker run osahyoun/rails-demo bundle exec rspec
+    - docker run --net="host" osahyoun/rails-demo bundle exec rspec
     #- curl --retry 10 --retry-delay 5 -v http://localhost:3000
     #- docker rspec spec
